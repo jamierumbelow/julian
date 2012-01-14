@@ -81,6 +81,17 @@ $calendar = new Julian(array(
 </div>
 ```
 
+## Configuration
+
+Passing through an array of config values to the constructor has the same effect as calling `initialize()` directly, or by setting the instance variables on an instance. Right now, Julian is very beta, so the range of config values is fairly limited. Nonetheless, here's a list of the existing values and what they do.
+
+* `$current_month` - Sets the currently displayed month. Should be in format MM.
+* `$current_year` - Sets the currently displayed year. Should be in format YYYY.
+
+*Changing either of these values will require recalculation, so you should ensure that you call `setup()` or set the values through `initialize()`.*
+
+* `$url` - A template for generating the previous/next URLs using the `prev_url()` and `next_url()` methods. `%y` and `%m` will be replaced with the appropriate year and month, respectively.
+
 ## Why Julian?
 
 Julian takes its namesake from two places. Firstly, the Julian Calendar, introduced by Julius Caesar in 46BC, and secondly, one of my closest friends, fellow web developer [@juliancheal](http://twitter.com/juliancheal).

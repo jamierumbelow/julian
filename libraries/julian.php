@@ -41,7 +41,7 @@ class Julian
         
         if ($this->current_month !== NULL && $this->current_year !== NULL)
         {
-            $this->_setup();
+            $this->setup();
         }
     }
     
@@ -180,7 +180,7 @@ class Julian
     /**
      * Setup the Calendar -- figure out weeks & days etc
      */
-    protected function _setup()
+    public function setup()
     {
         // Ensure we've got an appropriate month & year
         $adjusted_date = $this->_adjust_date($this->current_month, $this->current_year);
