@@ -1,0 +1,86 @@
+# Julian
+
+Julian is a very clever, standalone PHP calendar class, with support for events, fully customisable templates and totally arbitrary URLs.
+
+## Requirements
+
+* PHP 5.3+
+* [Twitter Bootstrap (included)](http://twitter.github.com/bootstrap)
+
+## Installation
+
+Copy the download directory into your project. Require the *libraries/julian.php* file into your script, ensure you're linking the stylesheets into your views and away you go.
+
+**Julian was built and tested inside CodeIgniter. Copying the contents of *libraries* into your *application/libraries* folder will allow you to load Julian like any other CodeIgniter library.**
+
+## Example Controller
+
+```php
+require_once 'libraries/julian.php';
+
+$year = @$_GET('year') ?: date('Y');
+$month = @$_GET('month') ?: date('m');
+
+$calendar = new Julian(array(
+    'url'           => site_url('/absence_requests?year=%y&month=%m'),
+    'current_month' => $month,
+    'current_year'  => $year
+));
+```
+
+## Example View
+
+```php
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+<link href="/stylesheets/julian.css" rel="stylesheet" />
+
+<div id="calendar">
+    <div id="calendar_header" class="alert-message block-message">
+        <div class="span5"><?= anchor($calendar->prev_url(), "&lt;&lt;") ?></a></div>
+        <div class="span6"><?= $calendar->current_month() ?> <?= $calendar->current_year() ?></div>
+        <div class="span5"><?= anchor($calendar->next_url(), "&gt;&gt;") ?></a></div>
+    </div>
+    
+    <table class="bordered-table zebra-striped">
+        <tr>
+            <?php foreach ($calendar->weekdays() as $weekday): ?>
+                <td><?= $weekday ?></td>
+            <?php endforeach ?>
+        </tr>
+        
+        <?php foreach ($calendar->weeks() as $week): ?>
+            <tr>
+                <?php foreach ($week->days() as $day): ?>
+                    <td class="calendar-day <?= $day->today_class() ?>">
+                        <?php if(!$day->blank()): ?>
+                            <span class="day-number"><?= $day->day() ?></span>
+                        <?php endif; ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    
+    <table id="calendar-event-overlay">
+        <?php foreach($calendar->weeks() as $week): ?>
+            <tr>
+                <?php foreach ($week->days() as $day): ?>
+                    <td class="calendar-day">
+                        <?php if(!$day->blank()): ?>
+                            <?php foreach($day->events() as $event): ?>
+                                <div class="calendar-event <?= $event->class_name() ?>">
+                                    <?= $event->name() ?>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+```
+
+## Why Julian?
+
+Julian takes its namesake from two places. Firstly, the Julian Calendar, introduced by Julius Caesar in 46BC, and secondly, one of my closest friends, fellow web developer [@juliancheal](http://twitter.com/juliancheal).

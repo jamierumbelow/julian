@@ -1,0 +1,32 @@
+/**
+ * Julian
+ *
+ * A very clever, Welsh and bespectacled Calendar class
+ *
+ * @author 		Jamie Rumbelow <http://jamierumbelow.net>
+ * @version		0.1.0
+ * @copyright 	(c)2011 Jamie Rumbelow
+ */
+
+#calendar, #calendar-event-overlay { text-align: center; }
+#calendar_header { overflow: auto; font-size: 1.4em; padding: 2px }
+#calendar_header div { float: left; text-align: center; }
+
+#calendar .calendar-day, #calendar-event-overlay .calendar-day { width: 120px; height: 70px; }
+#calendar .calendar-day .today { font-weight: bold; }
+
+#calendar .calendar-day .day-number { float: right; }
+
+#calendar .calendar-day .day .day-content { background: yellow; }
+
+#calendar.bordered-table.zebra-striped tr td { background-color: #FFFFFF; }
+#calendar.bordered-table.zebra-striped tr td:hover { background-color: #F5F5F5; }
+
+#calendar-event-overlay { margin-top: -445px; z-index: 1000; font-size: 0.9em }
+#calendar-event-overlay td { border: 0; padding-left: 0; padding-right: 0; }
+#calendar-event-overlay .calendar-event { height: 18px; background: #DDF4FB; padding: 2px; border-top: 1px solid #C6EDF9; border-bottom: 1px solid #C6EDF9; margin-bottom: 4px; }
+#calendar-event-overlay .calendar-event.start { border-left: 1px solid #C6EDF9; border-radius: 10px 0 0 10px; padding-left: 5px; margin-left: 5px }
+#calendar-event-overlay .calendar-event.end { border-right: 1px solid #C6EDF9; border-radius: 0 10px 10px 0; padding-right: 5px; margin-right: 5px }
+
+#calendar-event-overlay .calendar-event.holiday { background-color: #D1EED1; border-color: #BFE7BF; }
+#calendar-event-overlay .calendar-event.sick.leave { background-color:#fddfde;border-color:#fbc7c6; }
