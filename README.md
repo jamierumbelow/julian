@@ -81,6 +81,10 @@ $calendar = new Julian(array(
 </div>
 ```
 
+## Result
+
+![An Example Calendar](http://1.2.3.12/bmi/cl.ly/163N2C290V3E3d2n2t1Z/Screen%20Shot%202012-01-15%20at%2012.12.14.png)
+
 ## Configuration
 
 Passing through an array of config values to the constructor has the same effect as calling `initialize()` directly, or by setting the instance variables on an instance. Right now, Julian is very beta, so the range of config values is fairly limited. Nonetheless, here's a list of the existing values and what they do.
