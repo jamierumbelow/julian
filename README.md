@@ -18,8 +18,8 @@ Copy the download directory into your project. Require the *libraries/julian.php
 ```php
 require_once 'libraries/julian.php';
 
-$year = @$_GET('year') ?: date('Y');
-$month = @$_GET('month') ?: date('m');
+$year = @$_GET['year'] ?: date('Y');
+$month = @$_GET['month'] ?: date('m');
 
 $calendar = new Julian(array(
     'url'           => site_url('/absence_requests?year=%y&month=%m'),
