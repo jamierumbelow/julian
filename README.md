@@ -83,7 +83,7 @@ $calendar = new Julian(array(
 
 ## Result
 
-![An Example Calendar](/jamierumbelow/julian/raw/master/screenshot.png)
+![An Example Calendar](https://raw.githubusercontent.com/jamierumbelow/julian/master/screenshot.png)
 
 ## Configuration
 
