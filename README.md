@@ -1,4 +1,6 @@
-# Julian
+# DEPRECATED: Julian
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 Julian is a very clever, standalone PHP calendar class, with support for events, fully customisable templates and totally arbitrary URLs.
 
